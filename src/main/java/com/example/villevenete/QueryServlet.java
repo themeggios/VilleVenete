@@ -12,10 +12,11 @@ import java.util.List;
 @WebServlet(name = "QueryServlet", value = "/query-servlet")
 public class QueryServlet extends HttpServlet {
 
-    private Connection connect() throws SQLException {
+    private Connection connect() throws SQLException, ClassNotFoundException {
         String url = "jdbc:mysql://localhost:3306/villevenete"; // Sostituisci con il tuo database
         String user = "root"; // Nome utente predefinito di XAMPP
         String password = ""; // Password predefinita di XAMPP è vuota
+        Class.forName("com.mysql.cj.jdbc.Driver");
         return DriverManager.getConnection(url, user, password);
     }
 
@@ -30,7 +31,7 @@ public class QueryServlet extends HttpServlet {
             while (rs.next()) {
                 results.add(rs.getString(1)); // Assuming you want the first column
             }
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
 
