@@ -1,5 +1,6 @@
 # Ville Venete
-
+## Struttura progetto
+![](struttura.png)
 
 ## IDE e applicativi
 - progetto creato con JetBrains IntelliJ IDEA Ultimate, garantito il funzionamento solo su questo IDE
