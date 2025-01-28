@@ -9,9 +9,9 @@ public class QueryClient {
     public static void main(String[] args) {
         try {
             // Definisci la query SQL
-            String query = "SELECT * FROM ville"; // Sostituisci con la tua SQL query
+            String query = "SELECT * FROM ville";
             String encodedQuery = URLEncoder.encode(query, "UTF-8");
-            String urlString = "http://localhost:8080/VilleVenete_war_exploded/query-servlet?query=" + encodedQuery;
+            String urlString = "http://localhost:8080/VilleVenete_war_exploded/ville-servlet?query=" + encodedQuery;
 
             // Crea la connessione
             URL url = new URL(urlString);

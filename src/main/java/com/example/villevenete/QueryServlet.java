@@ -9,11 +9,11 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "QueryServlet", value = "/query-servlet")
+@WebServlet(name = "VilleServlet", value = "/ville-servlet")
 public class QueryServlet extends HttpServlet {
 
     private Connection connect() throws SQLException, ClassNotFoundException {
-        String url = "jdbc:mysql://localhost:3306/villevenete"; // Sostituisci con il tuo database
+        String url = "jdbc:mysql://localhost:3306/villevenete"; // URL del database
         String user = "root"; // Nome utente predefinito di XAMPP
         String password = ""; // Password predefinita di XAMPP è vuota
         Class.forName("com.mysql.cj.jdbc.Driver");
@@ -36,8 +36,8 @@ public class QueryServlet extends HttpServlet {
         }
 
         // Serialize results to JSON
-        //Gson gson = new Gson();
-        //String json = gson.toJson(results);
+        Gson gson = new Gson();
+        String json = gson.toJson(results);
 
         // Set response type and write JSON to response
         response.setContentType("application/json");
