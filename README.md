@@ -7,7 +7,7 @@
 - necessario Tomcat 11, occorre patchare XAMPP
 
 ## Creazione database
-Creare un dabatase `villevenete` ed importare il file `.sql` nel database
+Creare un dabatase `villevenete` ed importare il file `src/villevenete.sql` nel database
 
 ## XAMPP patch
 1. eliminare la cartella `C:\xampp\tomcat`
