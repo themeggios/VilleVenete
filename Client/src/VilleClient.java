@@ -3,13 +3,20 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.Scanner;
 
 public class VilleClient {
 
     public static void main(String[] args) {
         try {
+
+            // Chiedi la query all'utente
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("Inserisci la query SQL: ");
+            String query = scanner.nextLine();
+            scanner.close();
+
             // Definisci la query SQL
-            String query = "SELECT * FROM ville WHERE provincia = 'VI'";
             String encodedQuery = URLEncoder.encode(query, "UTF-8");
             String urlString = "http://localhost:8080/VilleVenete_war_exploded/ville-servlet?query=" + encodedQuery;
 

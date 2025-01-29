@@ -23,20 +23,15 @@ public class VilleServlet extends HttpServlet {
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
 
-            // Leggi il file JSON
-            File jsonFile = new File("result.json");
-            BufferedReader reader = new BufferedReader(new FileReader(jsonFile));
-            StringBuilder jsonResponse = new StringBuilder();
-            String line;
-            while ((line = reader.readLine()) != null) {
-                jsonResponse.append(line);
-            }
-            reader.close();
+            // Converti il ResultSet in JSON
+            String json = ResultSetToJson.convertToJson(rs);
 
-            // Imposta il tipo di contenuto e invia il JSON come risposta
             response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+
+            // Invia il JSON direttamente al client
             PrintWriter out = response.getWriter();
-            out.print(jsonResponse);
+            out.print(json);
             out.flush();
 
         } catch (SQLException | ClassNotFoundException e) {

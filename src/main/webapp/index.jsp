@@ -5,8 +5,11 @@
     <title>Ville Venete</title>
 </head>
 <body>
-<h1><%= "Ville Venete" %>
-</h1>
-<br/>
+<h1><%= "Ville Venete" %> </h1>
+<form action="ville-servlet" method="GET">
+    <label for="query">Inserisci la query SQL:</label>
+    <input type="text" id="query" name="query" required>
+    <button type="submit">Invia</button>
+</form>
 </body>
 </html>
